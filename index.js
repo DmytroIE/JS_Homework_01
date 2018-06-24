@@ -7,7 +7,7 @@ const MESSAGE_DECLINED = 'Отменено пользователем!';
 const MESSAGE_DENIED = 'Доступ запрещен!';
 const MESSAGE_WELCOME = 'Добро пожаловать!';
 
-let adminLogin;
+/*let adminLogin;
 let adminPassword;
 
 if (!(adminLogin=prompt(MESSAGE_INPUT_LOGIN))){
@@ -24,8 +24,27 @@ else if (adminPassword!==ADMIN_PASSWORD){
 }
 else {
   alert(MESSAGE_WELCOME);
-}
+}*/
 
+const adminLogin = prompt(MESSAGE_INPUT_LOGIN);
+if (adminLogin === ADMIN_LOGIN) {
+  const adminPassword = prompt(MESSAGE_INPUT_PASSWORD);
+  if (adminPassword===ADMIN_PASSWORD) {
+      alert(MESSAGE_WELCOME);
+  }
+  else if (adminPassword=== null){
+    alert(MESSAGE_DECLINED);
+  }
+  else {
+    alert(MESSAGE_DENIED);
+  }
+} 
+else if (adminLogin === null) {
+  alert(MESSAGE_DECLINED);
+} 
+else {
+  alert(MESSAGE_DENIED);
+}
 
 //ADDITIONAL TASK
 
@@ -33,10 +52,10 @@ const SEATS_AVAIL_SHARM = 15;
 const SEATS_AVAIL_HURGADA = 25;
 const SEATS_AVAIL_TABA = 6;
 
-let seatsNumber = Number( prompt('Введите количество необходимых мест') );
+const seatsNumber = +( prompt('Введите количество необходимых мест') );
 if ( Number.isNaN( seatsNumber ) || 
     seatsNumber <=0 || 
-    Number.parseFloat( seatsNumber )!==Number.parseInt( seatsNumber ) ){
+    Number.isInteger( seatsNumber ) ){
   alert('Ошибка ввода!');
 }
 else{
