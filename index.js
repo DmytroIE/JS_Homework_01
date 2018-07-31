@@ -55,7 +55,7 @@ const SEATS_AVAIL_TABA = 6;
 const seatsNumber = +( prompt('Введите количество необходимых мест') );
 if ( Number.isNaN( seatsNumber ) || 
     seatsNumber <=0 || 
-    Number.isInteger( seatsNumber ) ){
+    !Number.isInteger( seatsNumber ) ){
   alert('Ошибка ввода!');
 }
 else{
